@@ -1,0 +1,147 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="RentEase furniture and appliance rental platform prototype" />
+    <title>RentEase | Flexible Furniture Rentals</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="RentEase navigation">
+        <a class="brand" href="#discover" aria-label="RentEase home">
+          <span class="brand-mark">R</span>
+          <span><strong>RentEase</strong><small>monthly rentals</small></span>
+        </a>
+        <div class="account-chip">
+          <span class="avatar">AS</span>
+          <span><strong>Aarav Shah</strong><small>Verified renter</small></span>
+        </div>
+        <nav class="nav-list" aria-label="Customer views">
+          <button class="nav-link active" type="button" data-view="discover">Discover</button>
+          <button class="nav-link" type="button" data-view="rentals">My rentals</button>
+          <button class="nav-link" type="button" data-view="support">Support</button>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <button class="admin-switch" type="button" data-view="admin"><span>Operations</span><small>Admin workspace</small></button>
+        <p class="service-note">Service in Bengaluru, Pune, Hyderabad and Delhi NCR.</p>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div><p class="eyebrow" id="pageEyebrow">Move-in made easy</p><h1 id="pageTitle">Rent your home essentials, on your terms.</h1></div>
+          <div class="topbar-actions">
+            <label class="city-control"><span>Delivering to</span><select id="citySelect"><option>Bengaluru</option><option>Pune</option><option>Hyderabad</option><option>Delhi NCR</option></select></label>
+            <button class="primary-button" type="button" data-open-checkout>Review plan <span id="topCartCount">0</span></button>
+          </div>
+        </header>
+
+        <section class="view active" data-view-panel="discover" aria-labelledby="discoverTitle">
+          <div class="hero-band">
+            <div class="hero-copy">
+              <p class="eyebrow light">Flexible rental plans</p>
+              <h2 id="discoverTitle">Settle in without buying everything.</h2>
+              <p>Furniture and appliances arrive cleaned, installed, and ready to use. Keep them for as long as your move needs.</p>
+              <div class="hero-points"><span>Free maintenance</span><span>Easy relocation</span><span>Refundable deposit</span></div>
+            </div>
+            <form class="planner" id="rentalPlanner">
+              <label>Rental tenure<select id="durationSelect"><option value="3">3 months</option><option value="6" selected>6 months</option><option value="12">12 months</option><option value="18">18 months</option></select></label>
+              <label>Monthly budget<select id="budgetSelect"><option value="0">Any budget</option><option value="3000">Up to Rs. 3,000</option><option value="6000" selected>Up to Rs. 6,000</option><option value="9000">Up to Rs. 9,000</option></select></label>
+              <button class="secondary-button" type="submit">Find my essentials</button>
+            </form>
+          </div>
+
+          <section class="metrics-grid" aria-label="Rental plan summary">
+            <article><span id="monthlyTotal">Rs. 0</span><p>Monthly cart rent</p></article>
+            <article><span id="depositTotal">Rs. 0</span><p>Refundable deposit</p></article>
+            <article><span>48 hrs</span><p>Typical delivery</p></article>
+            <article><span>4 cities</span><p>Service coverage</p></article>
+          </section>
+
+          <section class="workspace" aria-label="Rental catalog and cart">
+            <div class="catalog-area">
+              <div class="section-heading">
+                <div><p class="eyebrow">Browse catalog</p><h2>Essentials for your next place</h2></div>
+                <div class="filters" role="group" aria-label="Catalog categories">
+                  <button class="filter active" type="button" data-filter="all">All items</button>
+                  <button class="filter" type="button" data-filter="Furniture">Furniture</button>
+                  <button class="filter" type="button" data-filter="Appliance">Appliances</button>
+                  <button class="filter" type="button" data-filter="Package">Bundles</button>
+                </div>
+              </div>
+              <p class="catalog-status" id="catalogStatus" aria-live="polite"></p>
+              <div class="product-grid" id="productGrid"></div>
+            </div>
+            <aside class="cart-panel" aria-label="Rental plan">
+              <div class="section-heading compact"><div><p class="eyebrow">Your rental plan</p><h2>Move-in list</h2></div><span class="cart-count" id="cartCount">0</span></div>
+              <div class="cart-items" id="cartItems"></div>
+              <div class="cart-summary"><div><span>Monthly rent</span><strong id="summaryRent">Rs. 0</strong></div><div><span>Security deposit</span><strong id="summaryDeposit">Rs. 0</strong></div><div class="grand-total"><span>First payment</span><strong id="summaryFirst">Rs. 0</strong></div></div>
+              <button class="primary-button full" type="button" data-open-checkout>Schedule delivery</button>
+            </aside>
+          </section>
+
+          <section class="journey-band">
+            <div class="section-heading"><div><p class="eyebrow">How it works</p><h2>A rental designed around relocation</h2></div></div>
+            <div class="journey">
+              <article><span>01</span><h3>Choose</h3><p>Build a room from verified products or pick a ready-made bundle.</p></article>
+              <article><span>02</span><h3>Schedule</h3><p>Confirm your address, delivery slot, tenure, and deposit.</p></article>
+              <article><span>03</span><h3>Live</h3><p>Use your essentials with free maintenance and easy extensions.</p></article>
+              <article><span>04</span><h3>Return</h3><p>Book pickup when you move and track your deposit settlement.</p></article>
+            </div>
+          </section>
+        </section>
+
+        <section class="view" data-view-panel="rentals" aria-labelledby="rentalsTitle">
+          <section class="overview-strip"><div><p class="eyebrow">Rental overview</p><h2 id="rentalsTitle">Your home is set up.</h2></div><button class="primary-button" type="button" data-open-checkout>Add more essentials</button></section>
+          <section class="rental-summary-grid"><article><span id="activeItemCount">3</span><p>Active items</p></article><article><span>18 Aug</span><p>Next monthly payment</p></article><article><span>117 days</span><p>Until earliest return</p></article><article><span>0</span><p>Open disputes</p></article></section>
+          <section class="table-section"><div class="section-heading"><div><p class="eyebrow">Active rentals</p><h2>Items at your current home</h2></div></div><div class="rental-list" id="rentalList"></div></section>
+          <section class="history-section"><div><p class="eyebrow">Rental history</p><h2>Completed rentals</h2></div><p>Ergonomic work chair returned in good condition on 04 Mar 2026. Deposit settled.</p></section>
+        </section>
+
+        <section class="view" data-view-panel="support" aria-labelledby="supportTitle">
+          <section class="support-layout">
+            <div class="support-intro"><p class="eyebrow">Maintenance support</p><h2 id="supportTitle">Something needs attention?</h2><p>Service visits are included in your plan. Our local partner usually confirms an appointment within four hours.</p><div class="support-stat"><strong>2.8 hrs</strong><span>Average resolution time</span></div></div>
+            <form class="support-form" id="supportForm">
+              <label>Rental item<select id="supportItem"></select></label>
+              <label>What do you need?<select id="supportType"><option>Repair request</option><option>Product swap</option><option>Installation help</option><option>Pickup question</option></select></label>
+              <label>Describe the issue<textarea id="supportNote" rows="4" placeholder="Tell us what happened"></textarea></label>
+              <button class="primary-button" type="submit">Send request</button>
+            </form>
+          </section>
+          <section class="table-section"><div class="section-heading"><div><p class="eyebrow">Request tracker</p><h2>Your support requests</h2></div></div><div class="ticket-list" id="ticketList"></div></section>
+        </section>
+
+        <section class="view" data-view-panel="admin" aria-labelledby="adminTitle">
+          <section class="admin-header"><div><p class="eyebrow light">Admin workspace</p><h2 id="adminTitle">Keep every city rental-ready.</h2><p>Today&rsquo;s view across inventory, delivery, maintenance and returns.</p></div><button class="secondary-button" type="button" id="reportButton">Generate report</button></section>
+          <section class="admin-metrics"><article><span>1,284</span><p>Active rentals</p><small>+8.4% this month</small></article><article><span>Rs. 18.6L</span><p>Monthly recurring revenue</p><small>91% of target</small></article><article><span>86%</span><p>Product utilization</p><small>Target: 82%</small></article><article><span>2.8 hrs</span><p>Maintenance resolution</p><small>Within SLA</small></article></section>
+          <section class="admin-grid">
+            <section class="data-section"><div class="section-heading"><div><p class="eyebrow">Inventory</p><h2>Availability watch</h2></div><button class="text-button" type="button" id="restockButton">Restock low items</button></div><div class="inventory-table" id="inventoryTable"></div></section>
+            <section class="data-section"><div class="section-heading"><div><p class="eyebrow">Today</p><h2>Delivery schedule</h2></div></div><div class="schedule-list"><div><span class="time">09:00</span><p><strong>Koramangala</strong><small>Studio Starter Pack</small></p><em>Assigned</em></div><div><span class="time">12:30</span><p><strong>Whitefield</strong><small>Fridge + washer</small></p><em>Assigned</em></div><div><span class="time">16:00</span><p><strong>HSR Layout</strong><small>Queen bed setup</small></p><em>Pending</em></div></div></section>
+          </section>
+          <section class="admin-grid">
+            <section class="data-section"><div class="section-heading"><div><p class="eyebrow">Maintenance queue</p><h2>Requests requiring action</h2></div></div><div class="admin-request-list" id="adminRequestList"></div></section>
+            <section class="data-section"><div class="section-heading"><div><p class="eyebrow">Returns</p><h2>Upcoming pickups</h2></div></div><div class="return-list"><div><strong>23 Jul</strong><span>2 items</span><p>Indiranagar, Bengaluru</p></div><div><strong>25 Jul</strong><span>1 bundle</span><p>Baner, Pune</p></div><div><strong>28 Jul</strong><span>3 items</span><p>Gachibowli, Hyderabad</p></div></div></section>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="checkout-dialog" id="checkoutDialog" aria-labelledby="checkoutTitle">
+      <form method="dialog" class="dialog-card" id="checkoutForm">
+        <div class="dialog-heading"><div><p class="eyebrow">Delivery details</p><h2 id="checkoutTitle">Schedule your move-in</h2></div><button class="close-button" type="button" id="closeDialog">Close</button></div>
+        <div class="delivery-summary" id="deliverySummary"></div>
+        <div class="delivery-fields">
+          <label>Delivery city<select id="deliveryCity"><option>Bengaluru</option><option>Pune</option><option>Hyderabad</option><option>Delhi NCR</option></select></label>
+          <label>Delivery date<input id="deliveryDate" type="date" required /></label>
+          <label>Preferred slot<select id="deliverySlot"><option>09:00 - 12:00</option><option>12:00 - 15:00</option><option>15:00 - 18:00</option></select></label>
+          <label>Delivery address<input id="deliveryAddress" type="text" placeholder="Flat, building, locality" required /></label>
+        </div>
+        <div class="dialog-actions"><button class="text-button" type="button" id="cancelDialog">Cancel</button><button class="primary-button" type="submit">Confirm delivery</button></div>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
